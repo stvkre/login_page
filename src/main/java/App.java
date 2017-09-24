@@ -5,6 +5,8 @@ import spark.template.velocity.VelocityTemplateEngine;import static spark.Spark.
 
 public class App {
   public static void main(String[] args) {
-     get("/hello", (request, response) -> "Hello User");
+    get("/", (request, response) -> {
+     return new ModelAndView(new HashMap(), "templates/form.vtl");
+   }, new VelocityTemplateEngine());
   }
 }
